@@ -8,6 +8,13 @@ def getRepositoryName() {
         """).trim()
 }
 
+def getBranchName() {
+    return sh(returnStdout: true, script: """
+        git branch --show-current
+        """).trim()
+}
+
+
 def getCommitHash() { 
     return sh(returnStdout: true, script: "git rev-parse HEAD").trim()
 }
