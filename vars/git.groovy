@@ -9,9 +9,15 @@ def getRepositoryName() {
 }
 
 def getBranchName() {
-    return sh(returnStdout: true, script: """
+    value = sh(returnStdout: true, script: """
         git branch --show-current
         """).trim()
+    if (value) {
+      return value
+    }
+    else {
+      return null
+    }
 }
 
 
