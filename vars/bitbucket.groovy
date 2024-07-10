@@ -11,8 +11,8 @@ def setBuildStatus(credentials, commitHref, state, key, name, description = "", 
   )
 }
 
-def createPullRequestComment(credentials, pullRequestHref, contentMarkdown) {
-  def request = ['content': [ 'markup': contentMarkdown ]]
+def createPullRequestComment(credentials, pullRequestHref, contentRaw) {
+  def request = ['content': [ 'raw': contentRaw ]]
   return httpRequest(
     url : "${pullRequestHref}/comments",
     httpMode: "POST",
